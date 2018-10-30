@@ -13,12 +13,22 @@ reducedNums
 
 // 3) Capitalize 'the', insert a comma after 'teacher' and output "Yoda says, "The greatest teacher, failure is"
 
+// let yoda_quote = ["the", "greatest", "teacher", "failure", "is"]
+// yoda_quote[0]="The"
+// yoda_quote[2]="teacher,"
+// yoda_quote.unshift("Yoda says,")
+// let yodaAnswer = yoda_quote.reduce((a,b) => `${a} ${b}`)
+// yodaAnswer
+
 let yoda_quote = ["the", "greatest", "teacher", "failure", "is"]
-yoda_quote[0]="The"
-yoda_quote[2]="teacher,"
-yoda_quote.unshift("Yoda says,")
-let yodaAnswer = yoda_quote.reduce((a,b) => `${a} ${b}`)
-yodaAnswer
+
+let assembledQuote = yoda_quote.map(word => {
+  if(word === "the") word = "The"
+  if(word === "teacher") word = "teacher,"
+  return word
+})
+
+console.log(`Yoda says, "${assembledQuote.join(" ")}"`)
 
 // need to go back and refactor number 3 above. This is the hacky/janky way of doing it.
 
